@@ -11,11 +11,11 @@ open(W+'index.html','w').write(full)
 style=s[s.index('<style>'):s.index('</style>')+8]
 fav=re.search(r'<link rel="icon"[^>]*>',s).group(0)
 priv=head+'<title>Privacy policy · Admetrion</title>\n'+fav+'''
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 '''+style+'''
 </head>
 <body>
-<header class="bar"><div class="wrap"><a class="brand" href="index.html">ADMETRION<span aria-hidden="true"></span></a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a class="cta-link" href="index.html#contact">Free mini-audit</a></nav></div></header>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 L24 30 L34 38 L56 14" stroke="#ffb000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="56" cy="14" r="5" fill="#ffb000"/></svg>ADMETRION</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a class="cta" href="index.html#contact">Free mini-audit</a></nav></div></header>
 <main class="wrap doc">
 <p class="label">Privacy</p>
 <h1 style="font-size:2rem">Privacy policy</h1>

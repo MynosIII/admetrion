@@ -1,12 +1,12 @@
 <title>Admetrion</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Matías Gaglio, Amazon seller consultant. Listing SEO, PPC, account audits, A+ images and sales dashboards. Free listing mini-audit.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230c0c0c'/%3E%3Ctext x='10' y='46' font-family='Consolas,monospace' font-size='40' font-weight='700' fill='%23f2f2f2'%3EA%3C/text%3E%3Crect x='38' y='42' width='16' height='6' fill='%23f9f1a5'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#0c0c0c">
+<meta name="description" content="Matías Gaglio, Amazon seller consultant. I find where your listing loses buyers and fix it: listing SEO, PPC, audits, A+ images and dashboards. Free mini-audit.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2307090c'/%3E%3Cpath d='M10 46 L24 30 L34 38 L54 16' stroke='%23ffb000' stroke-width='6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='54' cy='16' r='5' fill='%23ffb000'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#07090c">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Admetrion">
-<meta property="og:title" content="Admetrion: Amazon listing SEO, PPC, audits and dashboards">
-<meta property="og:description" content="I find why an Amazon listing isn't selling and fix it. Free listing mini-audit.">
+<meta property="og:title" content="Admetrion: find where your Amazon listing leaks buyers">
+<meta property="og:description" content="Listing SEO, PPC, audits, A+ images and dashboards by Matías Gaglio. Free listing mini-audit.">
 <meta property="og:image" content="https://admetrion.com/images/og.jpg">
 <meta property="og:url" content="https://admetrion.com/">
 <link rel="canonical" href="https://admetrion.com/">
@@ -14,356 +14,464 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Admetrion","description":"Amazon seller services: listing SEO, PPC, account audits, A+ content and sales dashboards.","founder":{"@type":"Person","name":"Matías Gaglio"},"email":"admetrion@gmail.com","areaServed":["US","MX","ES","DE","BR"],"knowsLanguage":["en","es","de","pt"],"sameAs":["https://www.instagram.com/admetrion/","https://www.linkedin.com/in/matiasignaciogaglio","https://matiasgaglio.com","https://www.upwork.com/freelancers/~0156e5791e290758b6"],"url":"https://admetrion.com/","telephone":"+5491135582309"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
-/* Layout: one calm column on a cmd.exe-black ground. The console shows up only where it
-   carries meaning: numbers, prices, data labels. Sections change shape (hero split, big lead case,
-   case rows, price list, one-line process, plain Q&A) instead of repeating one card grid.
-   Palette is the Windows console "Campbell" scheme, used sparingly. */
+/* Concept: an Amazon conversion funnel as a live instrument. The hero is a particle simulation
+   of shoppers flowing through the funnel, leaking at every stage, until the fixes are applied and
+   conversion climbs to the real case figure. The rest of the page reads like a lab notebook on
+   graph paper: huge numbers drawn to scale, a clickable funnel that maps leaks to services.
+   Phosphor amber is the one signal color; green marks real results; red marks lost buyers. */
 :root {
-  --bg: #0c0c0c;          /* cmd background */
-  --raise: #161616;
-  --line: #2b2b2b;
-  --fg: #cccccc;          /* cmd default text */
-  --hi: #f2f2f2;          /* cmd bright white */
-  --muted: #9a9a9a;
-  --yellow: #f9f1a5;      /* cmd bright yellow: the one action color */
-  --green: #16c60c;       /* cmd bright green: results only */
-  --blue: #61a8ff;        /* links */
+  --bg: #07090c;
+  --bg-2: #0d1116;
+  --grid: rgba(255, 255, 255, 0.045);
+  --line: #222a33;
+  --fg: #d5dbe1;
+  --hi: #ffffff;
+  --muted: #9aa5b1;
+  --amber: #ffb000;
+  --amber-soft: rgba(255, 176, 0, 0.14);
+  --green: #3ddc84;
+  --red: #ff5a4e;
+  --font-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
   --font-text: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: "IBM Plex Mono", Consolas, "Cascadia Mono", ui-monospace, monospace;
-  --wrap: 1080px;
+  --font-mono: "IBM Plex Mono", Consolas, ui-monospace, monospace;
+  --wrap: 1200px;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--fg); font: 400 1.125rem/1.65 var(--font-text); -webkit-font-smoothing: antialiased; margin: 0; }
-a { color: var(--blue); text-underline-offset: 3px; }
+body {
+  margin: 0; color: var(--fg); font: 400 1.125rem/1.65 var(--font-text); -webkit-font-smoothing: antialiased;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+a { color: var(--amber); text-underline-offset: 3px; }
 a:hover { color: var(--hi); }
-:focus-visible { outline: 2px solid var(--yellow); outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+p { margin: 0; }
+h1, h2, h3 { margin: 0; color: var(--hi); text-wrap: balance; }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .mono { font-family: var(--font-mono); }
-h1, h2, h3 { color: var(--hi); text-wrap: balance; margin: 0; font-weight: 700; }
-h2 { font-size: clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem); line-height: 1.2; letter-spacing: -0.01em; }
-h3 { font-size: 1.25rem; line-height: 1.35; }
-p { margin: 0; }
-.label { font: 500 0.8rem/1.4 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.lead { font-size: 1.2rem; max-width: 60ch; }
-section { padding-block: 88px; }
-section + section { border-top: 1px solid var(--line); }
-.head { display: grid; gap: 12px; margin-bottom: 40px; max-width: 62ch; }
+.label { font: 500 0.78rem/1.4 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+.display { font-family: var(--font-display); font-stretch: 112%; font-weight: 850; letter-spacing: -0.02em; line-height: 0.98; }
+section { padding-block: 120px; position: relative; }
+.head { display: grid; gap: 16px; margin-bottom: 56px; max-width: 760px; }
+.head h2 { font-size: clamp(2.2rem, 1.3rem + 3.6vw, 4.4rem); }
+.head p { font-size: 1.2rem; color: var(--fg); max-width: 60ch; }
 
 /* top bar */
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); }
-.bar .wrap { display: flex; align-items: center; gap: 12px 28px; padding-block: 14px; flex-wrap: wrap; }
-.brand { font: 600 1.05rem var(--font-mono); letter-spacing: .12em; color: var(--hi); text-decoration: none; }
-.brand span { display: inline-block; width: .6em; height: .14em; background: var(--yellow); margin-left: 3px; vertical-align: -0.05em; }
-.nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin-left: auto; font-size: 1rem; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(7, 9, 12, 0.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar .wrap { display: flex; align-items: center; gap: 10px 28px; padding-block: 14px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font: 800 1.1rem var(--font-display); font-stretch: 120%; letter-spacing: .06em; color: var(--hi); text-decoration: none; }
+.brand svg { width: 26px; height: 26px; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; margin-left: auto; font-size: 1rem; }
 .nav a { color: var(--fg); text-decoration: none; }
-.nav a:hover { color: var(--hi); text-decoration: underline; }
-.nav .cta-link { color: var(--yellow); }
+.nav a:hover { color: var(--hi); }
+.nav .cta { color: #07090c; background: var(--amber); padding: 6px 14px; font-weight: 700; }
+.nav .cta:hover { background: var(--hi); color: #07090c; }
 
 /* buttons */
-.btn { display: inline-block; font: 700 1.05rem var(--font-text); padding: 14px 22px; text-decoration: none; border: 2px solid var(--yellow); cursor: pointer; }
-.btn-primary { background: var(--yellow); color: #0c0c0c; }
-.btn-primary:hover { background: var(--hi); border-color: var(--hi); color: #0c0c0c; }
-.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 24px; margin-top: 32px; }
+.btn { display: inline-flex; align-items: center; gap: 10px; font: 700 1.08rem var(--font-text); padding: 16px 26px; text-decoration: none; border: 2px solid var(--amber); cursor: pointer; }
+.btn-primary { background: var(--amber); color: #07090c; }
+.btn-primary:hover { background: var(--hi); border-color: var(--hi); color: #07090c; }
+.btn-ghost { color: var(--hi); background: transparent; border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--hi); color: var(--hi); }
 
-/* hero */
-.hero { padding-block: 72px 88px; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 56px; align-items: center; }
-.hero h1 { font-size: clamp(2.1rem, 1.4rem + 2.6vw, 3.2rem); line-height: 1.12; letter-spacing: -0.015em; margin: 14px 0 22px; }
-.hero .lead { color: var(--fg); }
-.who { display: flex; align-items: center; gap: 14px; }
-.who img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
-.figure { margin: 0; min-width: 0; }
-.figure img { display: block; width: 100%; height: auto; max-width: 100%; background: #fff; }
-.figure figcaption { margin-top: 12px; font-size: 0.95rem; color: var(--muted); }
-.figure figcaption b { font-family: var(--font-mono); color: var(--green); font-weight: 600; }
+/* ---------------- HERO ---------------- */
+.hero { padding-block: 64px 0; overflow: hidden; }
+.hero-top { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 32px 56px; align-items: end; }
+.hero h1 { font-size: clamp(2.8rem, 1.2rem + 6.4vw, 7rem); }
+.hero h1 em { font-style: normal; color: var(--amber); }
+.hero-side { display: grid; gap: 22px; padding-bottom: 8px; }
+.hero-side p { font-size: 1.15rem; }
+.hero-side .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.who { color: var(--muted); font-size: 0.98rem; }
+.who b { color: var(--hi); font-weight: 700; }
 
-/* numbers row */
-.numbers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.numbers div { padding: 26px 24px 26px 0; min-width: 0; }
-.numbers div + div { padding-left: 24px; border-left: 1px solid var(--line); }
-.numbers .v { font: 600 clamp(1.6rem, 1.2rem + 1.4vw, 2.2rem)/1.15 var(--font-mono); color: var(--hi); font-variant-numeric: tabular-nums; }
-.numbers .v small { font-size: 0.55em; color: var(--muted); font-weight: 400; }
-.numbers p { margin-top: 8px; color: var(--muted); font-size: 0.98rem; }
+.sim { position: relative; margin-top: 56px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(180deg, rgba(13,17,22,0.4), rgba(13,17,22,0.9)); }
+.sim canvas { display: block; width: 100%; height: clamp(340px, 40vw, 520px); }
+.sim-static { display: none; }
+.hud { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.hud > div { padding: 18px 20px; min-width: 0; }
+.hud > div + div { border-left: 1px solid var(--line); }
+.hud .k { font: 500 0.75rem var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.hud .v { font: 600 clamp(1.4rem, 1rem + 1.6vw, 2.4rem)/1.1 var(--font-mono); color: var(--hi); font-variant-numeric: tabular-nums; margin-top: 6px; }
+.hud .v.cvr { color: var(--amber); }
+.hud .state { font: 500 0.95rem var(--font-mono); margin-top: 8px; color: var(--muted); }
+.hud .state b { font-weight: 600; }
+.hud .state .bad { color: var(--red); } .hud .state .good { color: var(--green); }
+.sim-note { padding: 12px 20px; font-size: 0.9rem; color: var(--muted); border-top: 1px solid var(--line); }
 
-/* lead case */
-.case-lead { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 48px; align-items: start; }
-.case-lead .text { display: grid; gap: 16px; min-width: 0; }
-.data { margin: 6px 0 0; font-family: var(--font-mono); font-size: 1rem; border-top: 1px solid var(--line); }
-.data div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+/* ---------------- NUMBERS ---------------- */
+.big { display: grid; gap: 72px; }
+.big-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 56px; align-items: end; }
+.big-num { font-size: clamp(3.4rem, 1rem + 6.6vw, 8.6rem); white-space: nowrap; color: var(--hi); font-variant-numeric: tabular-nums; }
+.big-num small { font-size: 0.32em; color: var(--muted); font-weight: 600; letter-spacing: 0; margin-left: .2em; }
+.big-text { display: grid; gap: 18px; padding-bottom: 14px; }
+.big-text h3 { font-size: 1.35rem; font-weight: 700; }
+.bars { display: grid; gap: 10px; font-family: var(--font-mono); font-size: 0.92rem; }
+.bar-row { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr) 6.5rem; gap: 12px; align-items: center; }
+.bar-row .k { color: var(--muted); }
+.bar-row .track { height: 14px; background: rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+.bar-row .fill { position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--muted); transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+.bar-row.after .fill { background: var(--green); }
+.bar-row .val { text-align: right; color: var(--hi); font-variant-numeric: tabular-nums; }
+.js .big-row:not(.in) .fill { width: 0; }
+.src { font-size: 0.88rem; color: var(--muted); }
+
+/* ---------------- FUNNEL / SERVICES ---------------- */
+.funnel-wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 40px 64px; align-items: start; }
+.funnel { display: grid; gap: 10px; }
+.stage { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 18px 20px; border: 1px solid var(--line); background: rgba(13,17,22,0.85); position: relative; transition: border-color .2s, background .2s; }
+.stage::before { content: ""; position: absolute; inset: 0 auto 0 0; width: var(--w); background: var(--amber-soft); transition: background .2s; z-index: 0; }
+.stage > * { position: relative; z-index: 1; }
+.stage .n { font: 600 0.9rem var(--font-mono); color: var(--muted); }
+.stage .t { font: 800 1.25rem/1.2 var(--font-display); font-stretch: 105%; color: var(--hi); }
+.stage .t small { display: block; font: 400 0.95rem var(--font-text); color: var(--muted); margin-top: 4px; }
+.stage .leak { font: 600 0.85rem var(--font-mono); color: var(--red); white-space: nowrap; }
+.stage:hover { border-color: var(--muted); }
+.stage[aria-pressed="true"] { border-color: var(--amber); }
+.stage[aria-pressed="true"]::before { background: rgba(255,176,0,0.24); }
+.stage:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.panel { border: 1px solid var(--amber); background: var(--bg-2); padding: 34px; display: grid; gap: 18px; position: sticky; top: 90px; }
+.panel h3 { font: 850 clamp(1.8rem, 1.2rem + 1.8vw, 2.6rem)/1.05 var(--font-display); font-stretch: 110%; }
+.panel .price { font: 600 1.4rem var(--font-mono); color: var(--amber); }
+.panel .price small { font: 400 0.95rem var(--font-text); color: var(--muted); margin-left: 6px; }
+.panel ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.panel li { padding-left: 1.4em; position: relative; }
+.panel li::before { content: ""; position: absolute; left: 0; top: .62em; width: .6em; height: 2px; background: var(--amber); }
+.all-services { margin-top: 56px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.all-services div { padding: 18px 16px 0 0; min-width: 0; }
+.all-services b { display: block; color: var(--hi); font-weight: 700; }
+.all-services span { font: 500 0.95rem var(--font-mono); color: var(--amber); }
+.extra { margin-top: 18px; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------------- CASES ---------------- */
+.case-lead { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 56px; align-items: center; }
+.case-lead .text { display: grid; gap: 16px; }
+.case-lead h3 { font: 850 clamp(1.8rem, 1.2rem + 2vw, 3rem)/1.02 var(--font-display); font-stretch: 110%; }
+.shots { position: relative; min-height: 380px; }
+.shots figure { margin: 0; position: absolute; width: 78%; box-shadow: 0 30px 80px -20px rgba(0,0,0,.8); border: 1px solid var(--line); background: #fff; }
+.shots figure:first-child { top: 0; left: 0; transform: rotate(-2deg); }
+.shots figure:last-child { bottom: 0; right: 0; transform: rotate(1.5deg); }
+.shots img { display: block; width: 100%; height: auto; }
+.shots figcaption { position: absolute; left: 0; bottom: -28px; font: 500 0.78rem var(--font-mono); color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+.data { margin: 0; font-family: var(--font-mono); border-top: 1px solid var(--line); }
+.data div { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 16px; padding: 11px 0; border-bottom: 1px solid var(--line); }
 .data dt { color: var(--muted); }
 .data dd { margin: 0; color: var(--fg); font-variant-numeric: tabular-nums; }
 .data dd b { color: var(--green); font-weight: 600; }
-.note { font-size: 0.92rem; color: var(--muted); }
-.charts { display: grid; gap: 22px; min-width: 0; }
+.note { font-size: 0.9rem; color: var(--muted); }
 
-/* other cases as rows */
-.rows { margin-top: 72px; border-top: 1px solid var(--line); }
-.row { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 2fr) minmax(0, 1fr); gap: 24px; padding: 28px 0; border-bottom: 1px solid var(--line); align-items: start; }
-.row h3 { font-size: 1.1rem; }
-.row .tag { display: block; margin-top: 6px; }
-.row p { color: var(--fg); }
-.row .result { font: 600 1.05rem/1.4 var(--font-mono); color: var(--hi); text-align: right; font-variant-numeric: tabular-nums; }
-.row .result small { display: block; font: 400 0.85rem/1.4 var(--font-text); color: var(--muted); margin-top: 4px; }
-.row .thumbs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; max-width: 420px; }
-.row .thumbs figure { margin: 0; }
-.row .thumbs img { display: block; width: 100%; height: auto; }
-.row .thumbs figcaption { font: 400 0.78rem var(--font-mono); color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .06em; }
+.cases { margin-top: 110px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.cases article { padding: 32px 28px 8px 0; display: grid; gap: 12px; align-content: start; min-width: 0; }
+.cases article + article { padding-left: 28px; border-left: 1px solid var(--line); }
+.cases .r { font: 850 clamp(1.8rem, 1.3rem + 1.4vw, 2.5rem)/1 var(--font-display); font-stretch: 105%; color: var(--hi); font-variant-numeric: tabular-nums; }
+.cases h3 { font-size: 1.1rem; }
+.cases p { color: var(--fg); }
+.ba { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.ba figure { margin: 0; } .ba img { display: block; width: 100%; height: auto; }
+.ba figcaption { font: 500 0.72rem var(--font-mono); color: var(--muted); margin-top: 4px; text-transform: uppercase; letter-spacing: .08em; }
 
-/* price list */
-.prices { width: 100%; border-collapse: collapse; }
-.prices th { text-align: left; font: 500 0.8rem var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 0 0 12px; border-bottom: 1px solid var(--fg); }
-.prices th:last-child, .prices td.price { text-align: right; }
-.prices td { padding: 22px 16px 22px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-.prices td:first-child { width: 30%; }
-.prices td h3 { font-size: 1.15rem; }
-.prices td p { color: var(--fg); max-width: 56ch; }
-.prices td.price { font: 600 1.1rem var(--font-mono); color: var(--hi); white-space: nowrap; padding-right: 0; font-variant-numeric: tabular-nums; }
-.prices td.price small { display: block; font: 400 0.85rem var(--font-text); color: var(--muted); }
-.after-table { margin-top: 18px; color: var(--muted); font-size: 0.98rem; }
-
-/* process line */
-.process { font-size: clamp(1.2rem, 1rem + 0.7vw, 1.5rem); line-height: 1.6; color: var(--hi); max-width: 46ch; }
-.process .arrow { font-family: var(--font-mono); color: var(--yellow); padding: 0 .2em; }
-
-/* about */
-.about { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 56px; }
+/* ---------------- ABOUT / FAQ ---------------- */
+.about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 64px; }
+.about h2 { font-size: clamp(2.6rem, 1.4rem + 4vw, 5rem); margin: 14px 0 24px; }
 .about .text { display: grid; gap: 18px; max-width: 62ch; }
-.facts { margin: 0; font-family: var(--font-mono); font-size: 0.98rem; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 12px 20px; align-content: start; }
+.facts { margin: 0; font-family: var(--font-mono); font-size: 0.98rem; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 14px 22px; align-content: start; padding-top: 10px; }
 .facts dt { color: var(--muted); }
-.facts dd { margin: 0; color: var(--fg); }
-
-/* faq */
-.qa { display: grid; gap: 32px; max-width: 760px; }
+.facts dd { margin: 0; }
+.qa { margin-top: 88px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 56px; }
 .qa h3 { font-size: 1.15rem; margin-bottom: 8px; }
 
-/* contact */
-.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; align-items: start; }
-.contact-grid .text { display: grid; gap: 18px; }
-.ways { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--line); }
-.ways li { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 12px 0; border-bottom: 1px solid var(--line); }
-.ways span { color: var(--muted); }
-.ways .addr { font-family: var(--font-mono); color: var(--fg); user-select: all; overflow-wrap: anywhere; }
-form { display: grid; gap: 18px; min-width: 0; }
+/* ---------------- CONTACT ---------------- */
+.contact { background: var(--amber); color: #111; }
+.contact .label { color: #3b2a00; }
+.contact h2 { color: #07090c; font-size: clamp(2.6rem, 1.2rem + 5vw, 6rem); margin: 14px 0 22px; }
+.contact p { color: #2a2a2a; }
+.contact a { color: #07090c; }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: start; }
+.ways { list-style: none; margin: 28px 0 0; padding: 0; border-top: 1px solid rgba(0,0,0,.25); }
+.ways li { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,.25); }
+.ways .addr { font-family: var(--font-mono); user-select: all; overflow-wrap: anywhere; }
+form { background: var(--bg); color: var(--fg); padding: 32px; display: grid; gap: 18px; min-width: 0; }
 .field { display: grid; gap: 6px; min-width: 0; }
-.field label { font: 500 0.82rem var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.field input, .field select, .field textarea { width: 100%; font: 400 1.05rem var(--font-text); color: var(--hi); background: var(--raise); border: 1px solid var(--line); border-radius: 0; padding: 12px 14px; }
+.field label { font: 500 0.8rem var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.field input, .field select, .field textarea { width: 100%; font: 400 1.05rem var(--font-text); color: var(--hi); background: var(--bg-2); border: 1px solid var(--line); border-radius: 0; padding: 12px 14px; }
 .field textarea { resize: vertical; min-height: 96px; }
-.field input::placeholder, .field textarea::placeholder { color: #7a7a7a; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--yellow); outline-offset: 0; border-color: transparent; }
-.field input[aria-invalid="true"] { border-color: #e74856; }
-form .btn { width: 100%; text-align: center; }
+.field input::placeholder, .field textarea::placeholder { color: #6f7a85; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--amber); outline-offset: 0; border-color: transparent; }
+.field input[aria-invalid="true"] { border-color: var(--red); }
+form .btn { justify-content: center; width: 100%; }
 form .btn[disabled] { opacity: .6; cursor: wait; }
-.consent { font-size: 0.88rem; color: var(--muted); }
-.form-status { min-height: 1.4em; font: 400 0.95rem/1.5 var(--font-mono); color: var(--muted); }
-.form-status.ok { color: var(--green); } .form-status.err { color: #e74856; }
+.consent { font-size: 0.88rem; color: var(--muted) !important; }
+.consent a { color: var(--amber) !important; }
+.form-status { min-height: 1.4em; font: 400 0.95rem/1.5 var(--font-mono); color: var(--muted) !important; }
+.form-status.ok { color: var(--green) !important; } .form-status.err { color: var(--red) !important; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
-footer { border-top: 1px solid var(--line); padding-block: 28px; font-size: 0.92rem; color: var(--muted); }
+footer { padding-block: 28px; font-size: 0.92rem; color: var(--muted); border-top: 1px solid var(--line); background: var(--bg); }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; }
 footer a { color: var(--muted); }
 
 /* privacy page */
-.doc { max-width: 720px; padding-block: 64px; display: grid; gap: 16px; }
+.doc { max-width: 720px; padding-block: 72px; display: grid; gap: 16px; }
 .doc h2 { font-size: 1.3rem; margin-top: 20px; }
 
-@media (max-width: 860px) {
-  .hero-grid, .case-lead, .about, .contact-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
-  .row { grid-template-columns: minmax(0, 1fr); gap: 10px; }
-  .row .result { text-align: left; }
-  section { padding-block: 64px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .bar-row .fill { transition: none; }
+}
+@media (max-width: 960px) {
+  .hero-top, .big-row, .funnel-wrap, .case-lead, .about, .contact-grid { grid-template-columns: minmax(0, 1fr); }
+  .panel { position: static; }
+  .all-services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .cases { grid-template-columns: minmax(0, 1fr); }
+  .cases article, .cases article + article { padding: 28px 0; border-left: 0; }
+  .cases article + article { border-top: 1px solid var(--line); }
+  .qa { grid-template-columns: minmax(0, 1fr); }
+  section { padding-block: 84px; }
+  .shots { min-height: 0; display: grid; gap: 40px; }
+  .shots figure { position: relative; width: 100%; transform: none !important; inset: auto !important; }
 }
 @media (max-width: 640px) {
-  .numbers { grid-template-columns: minmax(0, 1fr); }
-  .numbers div, .numbers div + div { padding: 20px 0; border-left: 0; }
-  .numbers div + div { border-top: 1px solid var(--line); }
-  .nav { margin-left: 0; width: 100%; font-size: 0.95rem; gap: 4px 18px; }
-  .prices thead { display: none; }
-  .prices, .prices tbody, .prices tr, .prices td { display: block; width: 100%; }
-  .prices td:first-child { width: 100%; }
-  .prices tr { border-bottom: 1px solid var(--line); padding: 18px 0; }
-  .prices td { border: 0; padding: 4px 0; }
-  .prices td.price { text-align: left; }
+  .nav a:not(.cta) { display: none; }
+  .bar .wrap { flex-wrap: nowrap; }
+  .hud { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hud > div:nth-child(3) { border-left: 0; }
+  .hud > div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .bar-row { grid-template-columns: 4.6rem minmax(0, 1fr) 5.2rem; font-size: 0.82rem; gap: 8px; }
+  .all-services { grid-template-columns: minmax(0, 1fr); }
+  .panel, form { padding: 24px; }
+  .stage { grid-template-columns: 2rem minmax(0, 1fr); }
+  .stage .leak { grid-column: 2; }
 }
 </style>
 
 <header class="bar">
   <div class="wrap">
-    <a class="brand" href="#top">ADMETRION<span aria-hidden="true"></span></a>
+    <a class="brand" href="#top"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 L24 30 L34 38 L56 14" stroke="#ffb000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="56" cy="14" r="5" fill="#ffb000"/></svg>ADMETRION</a>
     <nav class="nav" aria-label="Main">
+      <a href="#numbers">Results</a>
+      <a href="#funnel">Services</a>
       <a href="#work">Work</a>
-      <a href="#services">Services</a>
       <a href="#about">About</a>
-      <a class="cta-link" href="#contact">Free mini-audit</a>
+      <a class="cta" href="#contact">Free mini-audit</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="who">
-          <!-- PHOTO: add images/matias.jpg and uncomment
-          <img src="images/matias.jpg" alt="Matías Gaglio" width="112" height="112"> -->
-          <p class="label">Matías Gaglio &middot; Amazon seller consultant</p>
-        </div>
-        <h1>I work out why an Amazon listing isn't selling, and I fix it.</h1>
-        <p class="lead">I was Amazon Listing Manager at Vive Health. Now I help brands with their listings, PPC, images and sales reports in the US, Mexico, Spain, Germany and Brazil.</p>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-top">
+      <h1 id="hero-title" class="display">Most of your shoppers leave. <em>I&nbsp;find where.</em></h1>
+      <div class="hero-side">
+        <p class="who"><b>Matías Gaglio</b> &middot; Amazon seller consultant, ex Listing Manager at Vive Health</p>
+        <p>I trace every lost sale back to the stage of the funnel that caused it, then fix the listing, the images or the ads behind it.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#contact">Get a free mini-audit</a>
-          <a href="https://calendar.app.google/wKow54V5HJXm1XQu6" target="_blank" rel="noopener">or book a call</a>
+          <a class="btn btn-ghost" href="https://calendar.app.google/wKow54V5HJXm1XQu6" target="_blank" rel="noopener">Book a call</a>
         </div>
       </div>
-      <figure class="figure">
-        <img src="images/cases/ppc-conversion.jpg" alt="Seller Central chart: conversion rate on a client listing rising from 6.28% to 13.69%" width="850" height="388">
-        <figcaption>Conversion on a client listing after I rebuilt its campaigns and content: <b>6.28% &rarr; 13.69%</b>. Seller Central, Aug to Oct 2025.</figcaption>
-      </figure>
+    </div>
+
+    <div class="sim" id="sim">
+      <canvas id="funnel-canvas" aria-label="Animation: shoppers flow through the stages of an Amazon listing. Many drop out at each stage. When the fixes are applied, more of them reach the purchase, and conversion rises from 6.28% to 13.69%." role="img"></canvas>
+      <div class="hud wrap" aria-live="off">
+        <div><p class="k">Conversion rate</p><p class="v cvr" id="hud-cvr">13.69%</p></div>
+        <div><p class="k">Status</p><p class="state" id="hud-state"><b class="good">Fixes applied</b></p></div>
+        <div><p class="k">Shoppers in</p><p class="v" id="hud-in">&mdash;</p></div>
+        <div><p class="k">Orders</p><p class="v" id="hud-out">&mdash;</p></div>
+      </div>
+      <p class="sim-note wrap">A model of a real client listing: conversion went from 6.28% to 13.69% after I rebuilt its campaigns and content (Seller Central, Aug to Oct 2025). Each dot is a shopper.</p>
     </div>
   </section>
 
-  <section id="work">
+  <!-- NUMBERS -->
+  <section id="numbers">
     <div class="wrap">
       <div class="head">
-        <p class="label">Recent work</p>
-        <h2>Results from accounts I've worked on</h2>
-        <p>Figures come straight from Seller Central, Amazon Ads and Sellerboard. Some brands are anonymized at the client's request. The full write-ups are on <a href="https://matiasgaglio.com" target="_blank" rel="noopener">matiasgaglio.com</a>.</p>
+        <p class="label">Measured, not promised</p>
+        <h2 class="display">The numbers, drawn to scale</h2>
+        <p>Figures from Seller Central, Amazon Ads and Sellerboard on accounts I worked on. Some brands are anonymized at the client's request.</p>
       </div>
 
-      <div class="numbers">
-        <div><p class="v">13.69%<small> from 6.28%</small></p><p>conversion rate after a PPC and listing rebuild</p></div>
-        <div><p class="v">6.26</p><p>observed ROAS on the same account</p></div>
-        <div><p class="v">$312K<small> from $97K</small></p><p>monthly sales of a brand I built the profit dashboard for</p></div>
+      <div class="big">
+        <div class="big-row">
+          <p class="big-num display" data-count="13.69" data-from="6.28" data-dec="2" data-suffix="%">13.69%</p>
+          <div class="big-text">
+            <h3>Conversion rate on an automotive listing, after a PPC and content rebuild</h3>
+            <div class="bars">
+              <div class="bar-row"><span class="k">before</span><span class="track"><span class="fill" style="--w:45.9%"></span></span><span class="val">6.28%</span></div>
+              <div class="bar-row after"><span class="k">after</span><span class="track"><span class="fill" style="--w:100%"></span></span><span class="val">13.69%</span></div>
+            </div>
+            <p class="src">Seller Central, 4-week windows, Aug to Oct 2025. Before and after comparison, not a controlled test.</p>
+          </div>
+        </div>
+
+        <div class="big-row">
+          <p class="big-num display" data-count="312.5" data-from="96.8" data-dec="1" data-prefix="$" data-suffix="K">$312.5K</p>
+          <div class="big-text">
+            <h3>Monthly sales of a brand I built the profit dashboard for</h3>
+            <div class="bars">
+              <div class="bar-row"><span class="k">July</span><span class="track"><span class="fill" style="--w:31%"></span></span><span class="val">$96.8K</span></div>
+              <div class="bar-row after"><span class="k">October</span><span class="track"><span class="fill" style="--w:100%"></span></span><span class="val">$312.5K</span></div>
+            </div>
+            <p class="src">Sellerboard, July to October 27, 2025. Estimated net profit went from $15.6K to $62.3K. Brand anonymized.</p>
+          </div>
+        </div>
+
+        <div class="big-row">
+          <p class="big-num display" data-count="6.26" data-from="0" data-dec="2">6.26</p>
+          <div class="big-text">
+            <h3>Observed ROAS on the automotive account: $6.26 in sales for every $1 of ads</h3>
+            <div class="bars">
+              <div class="bar-row"><span class="k">ad $</span><span class="track"><span class="fill" style="--w:16%"></span></span><span class="val">$1.00</span></div>
+              <div class="bar-row after"><span class="k">sales</span><span class="track"><span class="fill" style="--w:100%"></span></span><span class="val">$6.26</span></div>
+            </div>
+            <p class="src">Amazon Ads aggregate view, Aug 7 to Oct 31, 2025.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNNEL / SERVICES -->
+  <section id="funnel">
+    <div class="wrap">
+      <div class="head">
+        <p class="label">Services</p>
+        <h2 class="display">Where does your listing lose buyers?</h2>
+        <p>Pick the stage that worries you. Each one maps to the work I'd do and what it costs.</p>
       </div>
 
-      <div class="case-lead" style="margin-top:72px">
+      <div class="funnel-wrap">
+        <div class="funnel" role="group" aria-label="Funnel stages">
+          <button class="stage" type="button" style="--w:100%" data-s="0" aria-pressed="false"><span class="n">01</span><span class="t">Nobody finds it<small>Search visibility and ranking</small></span><span class="leak">low impressions</span></button>
+          <button class="stage" type="button" style="--w:78%" data-s="1" aria-pressed="false"><span class="n">02</span><span class="t">They see it but don't click<small>Main image, title, price, reviews</small></span><span class="leak">low CTR</span></button>
+          <button class="stage" type="button" style="--w:56%" data-s="2" aria-pressed="true"><span class="n">03</span><span class="t">They click but don't buy<small>Gallery, A+ content, bullets</small></span><span class="leak">low conversion</span></button>
+          <button class="stage" type="button" style="--w:38%" data-s="3" aria-pressed="false"><span class="n">04</span><span class="t">Ads eat the margin<small>Campaign structure, wasted spend</small></span><span class="leak">high ACoS</span></button>
+          <button class="stage" type="button" style="--w:24%" data-s="4" aria-pressed="false"><span class="n">05</span><span class="t">I don't know where it leaks<small>Sales, ads and profit in one view</small></span><span class="leak">no visibility</span></button>
+        </div>
+
+        <div class="panel" id="panel" aria-live="polite">
+          <p class="label" id="p-label">Fix for stage 03</p>
+          <h3 id="p-title">A+ content and listing images</h3>
+          <p id="p-text">Images that answer buyer questions before they're asked: infographics, dimensions, compatibility and comparison charts, built to Amazon's specs.</p>
+          <ul id="p-list"><li>A+ modules and gallery images</li><li>Copy for every module</li><li>PSD source files in larger packages</li></ul>
+          <p class="price" id="p-price">from $50<small>3 images or A+ modules</small></p>
+          <a class="btn btn-primary" href="#contact">Start with a free mini-audit</a>
+        </div>
+      </div>
+
+      <div class="all-services" aria-label="All services and starting prices">
+        <div><b>Listing SEO</b><span>from $35</span></div>
+        <div><b>Amazon PPC</b><span>from $50</span></div>
+        <div><b>A+ and images</b><span>from $50</span></div>
+        <div><b>Account audit</b><span>from $60</span></div>
+        <div><b>Dashboard</b><span>from $60</span></div>
+      </div>
+      <p class="extra">Fixed prices in USD, paid to me directly. Spanish, German or Portuguese version of a listing: +$25. Large catalogs and monthly work get a quote.</p>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="case-lead">
         <div class="text">
-          <p class="label">PPC and listings &middot; tire and wheel accessories</p>
-          <h3>Rebuilding campaigns and content on an automotive listing</h3>
-          <p>The goal was more sales and a higher conversion rate on the listing. I audited how the campaigns and the listing were set up, reorganized targeting, and coordinated changes to the content and the ads.</p>
+          <p class="label">Case &middot; tire and wheel accessories</p>
+          <h3>Same traffic, twice the conversion</h3>
+          <p>I audited how the campaigns and the listing were set up, reorganized targeting, and coordinated changes to the content and the ads.</p>
           <dl class="data">
             <div><dt>conversion</dt><dd>6.28% &rarr; <b>13.69%</b></dd></div>
             <div><dt>retail sales, 4 weeks</dt><dd>$1,560 &rarr; <b>$2,830</b></dd></div>
             <div><dt>observed ROAS</dt><dd><b>6.26</b></dd></div>
           </dl>
-          <p class="note">Before and after comparison, Aug to Oct 2025. Not a controlled test.</p>
+          <p class="note">Before and after comparison, not a controlled test. Full write-up on <a href="https://matiasgaglio.com" target="_blank" rel="noopener">matiasgaglio.com</a>.</p>
         </div>
-        <div class="charts">
-          <figure class="figure">
-            <img src="images/cases/ppc-sales.jpg" alt="Seller Central chart: retail sales rising from $1.56K to $2.83K" loading="lazy" width="830" height="443">
-            <figcaption>Retail sales, Seller Central</figcaption>
-          </figure>
+        <div class="shots">
+          <figure><img src="images/cases/ppc-conversion.jpg" alt="Seller Central chart: conversion rising from 6.28% to 13.69%" loading="lazy" width="850" height="388"></figure>
+          <figure><img src="images/cases/ppc-sales.jpg" alt="Seller Central chart: retail sales rising from $1.56K to $2.83K" loading="lazy" width="830" height="443"><figcaption>Screenshots from Seller Central</figcaption></figure>
         </div>
       </div>
 
-      <div class="rows">
-        <article class="row">
-          <div><h3>Profit dashboard for a growing brand</h3><span class="label tag">Business intelligence</span></div>
-          <p>I built a monthly view that joined sales, ad spend and margin, then ranked actions by each product's bottleneck. Brand anonymized.</p>
-          <p class="result">$96.8K &rarr; $312.5K<small>monthly sales, Jul to Oct 2025 (Sellerboard)</small></p>
-        </article>
-        <article class="row">
-          <div><h3>Gallery redesign</h3><span class="label tag">Listing images &middot; automotive</span></div>
-          <div>
-            <p>The old images put specs in small red text on white, which is hard to read on a phone. I set a clear order of messages and redesigned the six images so thickness, bolt pattern and hub size read at a glance.</p>
-            <div class="thumbs">
-              <figure><img src="images/cases/gallery-before.jpg" alt="Old listing image with small red spec text" loading="lazy" width="1000" height="974"><figcaption>Before</figcaption></figure>
-              <figure><img src="images/cases/gallery-after.jpg" alt="Redesigned listing image with large readable specs" loading="lazy" width="1000" height="1000"><figcaption>After</figcaption></figure>
-            </div>
+      <div class="cases">
+        <article>
+          <p class="label">Listing images &middot; automotive</p>
+          <p class="r">6 images</p>
+          <h3>A gallery you can read on a phone</h3>
+          <p>I set a clear order of messages and redesigned the gallery so thickness, bolt pattern and hub size read at a glance.</p>
+          <div class="ba">
+            <figure><img src="images/cases/gallery-before.jpg" alt="Old listing image with small red spec text" loading="lazy" width="1000" height="974"><figcaption>Before</figcaption></figure>
+            <figure><img src="images/cases/gallery-after.jpg" alt="Redesigned image with large readable specs" loading="lazy" width="1000" height="1000"><figcaption>After</figcaption></figure>
           </div>
-          <p class="result">6 images<small>design case, no sales figure claimed</small></p>
         </article>
-        <article class="row">
-          <div><h3>Daizzy Gear</h3><span class="label tag">Account operations</span></div>
+        <article>
+          <p class="label">Account operations &middot; Daizzy Gear</p>
+          <p class="r">$874 &rarr; $2,415</p>
+          <h3>Weekly revenue, June 2026</h3>
           <p>I audited PPC, set the budget split, coordinated promotions and content, and tied ad decisions to stock and catalog status.</p>
-          <p class="result">$874 &rarr; $2,415<small>weekly revenue, one week compared with the previous one (Jun 2026)</small></p>
+          <p class="note">One week compared with the previous one, not sustained growth.</p>
         </article>
-        <article class="row">
-          <div><h3>Vive Health</h3><span class="label tag">Catalog management</span></div>
-          <p>As Amazon Listing Manager I ran listings, A+ content and images across a large catalog of health and mobility products.</p>
-          <p class="result">In-house<small>Amazon Listing Manager</small></p>
+        <article>
+          <p class="label">Catalog management &middot; Vive Health</p>
+          <p class="r">In-house</p>
+          <h3>Amazon Listing Manager</h3>
+          <p>I ran listings, A+ content and images across a large catalog of health and mobility products.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="head">
-        <p class="label">Services and prices</p>
-        <h2>What I can do for your account</h2>
-        <p>Fixed prices in USD, paid to me directly. Large catalogs and monthly work get a quote.</p>
-      </div>
-      <table class="prices">
-        <thead><tr><th scope="col">Service</th><th scope="col">What you get</th><th scope="col">From</th></tr></thead>
-        <tbody>
-          <tr><td><h3>Account audit</h3></td><td><p>I go through listings, images, reviews, ads, pricing and the Buy Box, and send the 5 to 10 changes that matter most, ranked by impact.</p></td><td class="price">$60<small>per ASIN</small></td></tr>
-          <tr><td><h3>Listing SEO</h3></td><td><p>Keyword research, title, bullets, description and backend search terms. Written to Amazon's rules. Spanish, German or Portuguese versions on request.</p></td><td class="price">$35<small>per listing</small></td></tr>
-          <tr><td><h3>Amazon PPC</h3></td><td><p>An audit of your campaigns and search terms, or a new structure built from scratch, with negatives and bid changes to cut wasted spend.</p></td><td class="price">$50<small>audit</small></td></tr>
-          <tr><td><h3>A+ content and images</h3></td><td><p>A+ modules and gallery images to Amazon's specs: infographics, dimensions, compatibility and comparison charts. PSD files included in larger packages.</p></td><td class="price">$50<small>3 images</small></td></tr>
-          <tr><td><h3>Sales and ads dashboard</h3></td><td><p>One view of sales, ad spend, ACoS, TACoS and profit by product, in Power BI, Excel or Google Sheets, with a guide to refresh it.</p></td><td class="price">$60<small>per dashboard</small></td></tr>
-        </tbody>
-      </table>
-      <p class="after-table">Translation and localization of a listing to Spanish, German or Portuguese: +$25.</p>
-    </div>
-  </section>
-
-  <section id="process">
-    <div class="wrap">
-      <div class="head"><p class="label">How it works</p></div>
-      <p class="process">You send me an ASIN <span class="arrow">&rarr;</span> I find where buyers drop off <span class="arrow">&rarr;</span> you get a ranked list of changes <span class="arrow">&rarr;</span> I make them, or hand them to your team.</p>
-    </div>
-  </section>
-
+  <!-- ABOUT -->
   <section id="about">
-    <div class="wrap about">
-      <div class="text">
-        <p class="label">About</p>
-        <h2>Matías Gaglio</h2>
-        <p>I've worked on Amazon from the inside, as Listing Manager at Vive Health, and from an agency, as a PPC and performance analyst. Before that I spent years as a graphic designer, so I can write the copy, make the images, and build the report that shows whether any of it worked.</p>
-        <p>I'm based in Argentina and work remotely in English and Spanish.</p>
-        <p><a href="https://matiasgaglio.com" target="_blank" rel="noopener">See my full portfolio</a></p>
-      </div>
-      <dl class="facts">
-        <dt>languages</dt><dd>English, Spanish, German, Portuguese</dd>
-        <dt>marketplaces</dt><dd>US, MX, ES, DE, BR</dd>
-        <dt>tools</dt><dd>Seller Central, Ads Console, Brand Analytics, Power BI, Excel, Sheets, Photoshop</dd>
-        <dt>access</dt><dd>A user login, never your password</dd>
-      </dl>
-    </div>
-  </section>
-
-  <section id="faq">
     <div class="wrap">
-      <div class="head"><p class="label">Questions</p></div>
+      <div class="about">
+        <div>
+          <p class="label">About</p>
+          <!-- PHOTO: add images/matias.jpg here when available -->
+          <h2 class="display">Matías Gaglio</h2>
+          <div class="text">
+            <p>I've worked on Amazon from the inside, as Listing Manager at Vive Health, and from an agency, as a PPC and performance analyst. Before that I spent years as a graphic designer.</p>
+            <p>So I can write the copy, make the images, run the ads, and build the report that shows whether any of it worked. I'm based in Argentina and work remotely in English and Spanish.</p>
+            <p><a href="https://matiasgaglio.com" target="_blank" rel="noopener">See my full portfolio</a></p>
+          </div>
+        </div>
+        <dl class="facts">
+          <dt>languages</dt><dd>English, Spanish, German, Portuguese</dd>
+          <dt>marketplaces</dt><dd>US, MX, ES, DE, BR</dd>
+          <dt>tools</dt><dd>Seller Central, Ads Console, Brand Analytics, Power BI, Excel, Sheets, Photoshop</dd>
+          <dt>access</dt><dd>A user login, never your password</dd>
+          <dt>also on</dt><dd><a href="https://www.upwork.com/freelancers/~0156e5791e290758b6" target="_blank" rel="noopener">Upwork</a> &middot; <a href="https://www.linkedin.com/in/matiasignaciogaglio" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://www.instagram.com/admetrion/" target="_blank" rel="noopener">Instagram</a></dd>
+        </dl>
+      </div>
+
       <div class="qa">
         <div><h3>What's in the free mini-audit?</h3><p>I look at one ASIN and send you the three changes I'd make first, across the listing, the images and the ads. It's free and you don't commit to anything.</p></div>
         <div><h3>Do you need my Seller Central password?</h3><p>No. I ask for user access with only the permissions the job needs.</p></div>
-        <div><h3>How do I pay?</h3><p>Directly, once we agree on the scope. If you prefer a platform, I'm also on <a href="https://www.upwork.com/freelancers/~0156e5791e290758b6" target="_blank" rel="noopener">Upwork</a>.</p></div>
+        <div><h3>How do I pay?</h3><p>Directly, once we agree on the scope. If you prefer a platform, I'm also on Upwork.</p></div>
         <div><h3>What do you need to build a dashboard?</h3><p>Your Business Reports and Ads exports. If you don't know which ones, I'll walk you through it.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
     <div class="wrap contact-grid">
-      <div class="text">
+      <div>
         <p class="label">Free mini-audit</p>
-        <h2>Send me one ASIN</h2>
-        <p>Within 48 hours you'll get the three changes I'd make first. I write it myself, for your listing and your category.</p>
+        <h2 class="display">Send me one ASIN.</h2>
+        <p>Within 48 hours you get the three changes I'd make first. I write it myself, for your listing and your category.</p>
         <ul class="ways">
           <li><a href="https://calendar.app.google/wKow54V5HJXm1XQu6" target="_blank" rel="noopener">Book a call</a><span>Google Calendar</span></li>
           <li><a href="https://wa.me/5491135582309" target="_blank" rel="noopener">WhatsApp</a><span class="addr">+54 9 11 3558-2309</span></li>
           <li><span>Email</span><span class="addr">admetrion@gmail.com</span></li>
-          <li><a href="https://www.linkedin.com/in/matiasignaciogaglio" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/admetrion/" target="_blank" rel="noopener">Instagram</a></li>
         </ul>
       </div>
-
       <form id="lead-form" data-endpoint="" novalidate>
         <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
         <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
@@ -391,6 +499,201 @@ footer a { color: var(--muted); }
 </footer>
 
 <script>
+document.documentElement.classList.add('js');
+var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- Funnel simulation ---------- */
+(function () {
+  var cv = document.getElementById('funnel-canvas');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d');
+  var hudCvr = document.getElementById('hud-cvr'), hudState = document.getElementById('hud-state');
+  var hudIn = document.getElementById('hud-in'), hudOut = document.getElementById('hud-out');
+  var W = 0, H = 0, dpr = 1;
+  var gates = [
+    { x: 0.30, label: 'PRODUCT PAGE' },
+    { x: 0.55, label: 'ADD TO CART' },
+    { x: 0.80, label: 'PURCHASE' }
+  ];
+  // pass rates per gate; product = conversion rate of the real case
+  var BEFORE = [0.45, 0.35, 0.3987];   // 0.45*0.35*0.3987 = 6.28%
+  var AFTER  = [0.60, 0.50, 0.4563];   // 0.60*0.50*0.4563 = 13.69%
+  var CVR_B = 6.28, CVR_A = 13.69;
+  var mix = 0, target = 0, phaseT = 0, PH_BEFORE = 6, PH_AFTER = 8;
+  var parts = [], spawnAcc = 0, countIn = 0, countOut = 0;
+  function rate(i) { return BEFORE[i] + (AFTER[i] - BEFORE[i]) * mix; }
+  function resize() {
+    var r = cv.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function bandTop() { return H * 0.22; } function bandBot() { return H * 0.86; }
+  function cy() { return (bandTop() + bandBot()) / 2; }
+  function half(g) { // band half-height after g gates, narrowing with the share of shoppers still in
+    var c = 1; for (var i = 0; i < g; i++) c *= rate(i);
+    return (bandBot() - bandTop()) / 2 * Math.max(0.1, Math.sqrt(c));
+  }
+  function spawn() {
+    var u = (Math.random() * 2 - 1); u = Math.sign(u) * Math.pow(Math.abs(u), 0.8);
+    parts.push({ x: -6, u: u, y: cy() + u * half(0), vx: (W / 5.2) * (0.85 + Math.random() * 0.3), vy: 0, gate: 0, dead: false, life: 1 });
+    countIn++;
+  }
+  function drawEnvelope() {
+    var xs = [0], hs = [half(0)];
+    for (var i = 0; i < gates.length; i++) { xs.push(gates[i].x * W); hs.push(half(i)); xs.push(gates[i].x * W + 1); hs.push(half(i + 1)); }
+    xs.push(W); hs.push(half(gates.length));
+    var c = cy();
+    ctx.beginPath(); ctx.moveTo(xs[0], c - hs[0]);
+    for (var k = 1; k < xs.length; k++) ctx.lineTo(xs[k], c - hs[k]);
+    for (var k = xs.length - 1; k >= 0; k--) ctx.lineTo(xs[k], c + hs[k]);
+    ctx.closePath();
+    var g = ctx.createLinearGradient(0, 0, W, 0);
+    g.addColorStop(0, 'rgba(255,176,0,0.02)'); g.addColorStop(0.8, 'rgba(255,176,0,0.07)'); g.addColorStop(1, mix > 0.5 ? 'rgba(61,220,132,0.12)' : 'rgba(255,176,0,0.09)');
+    ctx.fillStyle = g; ctx.fill();
+    ctx.strokeStyle = 'rgba(255,176,0,0.28)'; ctx.lineWidth = 1; ctx.stroke();
+  }
+  function drawGates() {
+    var narrow = W < 620;
+    var lab = narrow ? ['PAGE', 'CART', 'BUY'] : null;
+    ctx.font = '500 11px "IBM Plex Mono", monospace';
+    ctx.textBaseline = 'top';
+    for (var i = 0; i < gates.length; i++) {
+      var gx = gates[i].x * W;
+      ctx.strokeStyle = 'rgba(255,255,255,0.16)'; ctx.lineWidth = 1;
+      ctx.setLineDash([3, 5]); ctx.beginPath(); ctx.moveTo(gx, bandTop() - 18); ctx.lineTo(gx, bandBot() + 10); ctx.stroke(); ctx.setLineDash([]);
+      ctx.fillStyle = 'rgba(213,219,225,0.75)';
+      ctx.fillText(narrow ? lab[i] : gates[i].label, gx + 6, 14);
+      var pct = Math.round(rate(i) * 100);
+      ctx.font = (narrow ? '600 13px' : '600 17px') + ' "IBM Plex Mono", monospace';
+      ctx.fillStyle = mix > 0.5 ? '#3ddc84' : '#ffb000';
+      ctx.fillText(pct + (narrow ? '%' : '% pass'), gx + 6, 30);
+      ctx.font = '500 11px "IBM Plex Mono", monospace';
+    }
+    ctx.fillStyle = 'rgba(213,219,225,0.75)';
+    ctx.fillText(narrow ? 'IN' : 'SHOPPERS IN', 12, 14);
+  }
+  function step(dt) {
+    phaseT += dt;
+    if (target === 0 && phaseT > PH_BEFORE) { target = 1; phaseT = 0; }
+    else if (target === 1 && phaseT > PH_AFTER) { target = 0; phaseT = 0; countIn = 0; countOut = 0; }
+    mix += (target - mix) * Math.min(1, dt * 1.6);
+    spawnAcc += dt * Math.max(40, W / 7);
+    while (spawnAcc > 1) { spawn(); spawnAcc--; }
+    for (var i = parts.length - 1; i >= 0; i--) {
+      var p = parts[i];
+      if (p.dead) {
+        p.vy += 520 * dt; p.y += p.vy * dt; p.x += p.vx * 0.25 * dt; p.life -= dt * 1.1;
+        if (p.life <= 0 || p.y > H + 10) parts.splice(i, 1);
+        continue;
+      }
+      p.x += p.vx * dt;
+      var ty = cy() + p.u * half(p.gate);
+      p.y += (ty - p.y) * Math.min(1, dt * 3.2);
+      if (p.gate < gates.length && p.x >= gates[p.gate].x * W) {
+        if (Math.random() > rate(p.gate)) { p.dead = true; p.vy = -40 - Math.random() * 60; }
+        else { p.gate++; if (p.gate === gates.length) { countOut++; } }
+      }
+      if (p.x > W + 8) parts.splice(i, 1);
+    }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    drawEnvelope();
+    drawGates();
+    var tail = 0.045;
+    ctx.lineCap = 'round';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      if (p.dead) {
+        ctx.strokeStyle = 'rgba(255,90,78,' + Math.max(0, p.life * 0.8).toFixed(3) + ')'; ctx.lineWidth = 2.2;
+        ctx.beginPath(); ctx.moveTo(p.x - p.vx * 0.25 * tail, p.y - p.vy * tail); ctx.lineTo(p.x, p.y); ctx.stroke();
+      } else if (p.gate < gates.length) {
+        ctx.strokeStyle = 'rgba(255,176,0,' + (0.38 + p.gate * 0.22) + ')'; ctx.lineWidth = 2.4;
+        ctx.beginPath(); ctx.moveTo(p.x - p.vx * tail, p.y); ctx.lineTo(p.x, p.y); ctx.stroke();
+      }
+    }
+    ctx.save(); ctx.shadowColor = '#3ddc84'; ctx.shadowBlur = 14; ctx.fillStyle = '#3ddc84';
+    for (var i = 0; i < parts.length; i++) {
+      var p = parts[i];
+      if (!p.dead && p.gate === gates.length) { ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, 6.283); ctx.fill(); }
+    }
+    ctx.restore();
+    var cvr = CVR_B + (CVR_A - CVR_B) * mix;
+    hudCvr.textContent = cvr.toFixed(2) + '%';
+    hudState.innerHTML = mix > 0.5 ? '<b class="good">Fixes applied</b>' : '<b class="bad">Leaking buyers</b>';
+    hudIn.textContent = countIn.toLocaleString('en-US');
+    hudOut.textContent = countOut.toLocaleString('en-US');
+  }
+  function staticFrame() {
+    // a still frame for reduced motion: run the model forward quietly, then draw once
+    mix = 1; target = 1;
+    for (var k = 0; k < 400; k++) step(1 / 60);
+    draw();
+  }
+  resize();
+  window.addEventListener('resize', function () { resize(); if (reduce) staticFrame(); });
+  if (reduce) { staticFrame(); return; }
+  var last = performance.now(), visible = true;
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(cv);
+  // warm up so the first frame is already full of shoppers
+  for (var k = 0; k < 240; k++) step(1 / 60);
+  function loop(now) {
+    var dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (visible && !document.hidden) { step(dt); draw(); }
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
+})();
+
+/* ---------- Big numbers: count up and draw bars when they enter ---------- */
+(function () {
+  var rows = document.querySelectorAll('.big-row');
+  if (reduce || !('IntersectionObserver' in window)) { rows.forEach(function (r) { r.classList.add('in'); }); return; }
+  function fmt(el, v) {
+    var dec = +el.dataset.dec || 0;
+    el.textContent = (el.dataset.prefix || '') + v.toFixed(dec) + (el.dataset.suffix || '');
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var row = e.target; io.unobserve(row); row.classList.add('in');
+      var el = row.querySelector('[data-count]');
+      var from = +el.dataset.from, to = +el.dataset.count, t0 = performance.now(), D = 1400;
+      (function tick(now) {
+        var k = Math.min(1, (now - t0) / D), ease = 1 - Math.pow(1 - k, 3);
+        fmt(el, from + (to - from) * ease);
+        if (k < 1) requestAnimationFrame(tick);
+      })(t0);
+    });
+  }, { threshold: 0.35 });
+  rows.forEach(function (r) { io.observe(r); });
+})();
+
+/* ---------- Funnel selector ---------- */
+(function () {
+  var data = [
+    { t: 'Listing SEO', x: 'Keyword research from search volume and competitors, then a title, bullets, description and backend terms written to rank and to Amazon\'s rules.', l: ['Keyword research', 'Title, 5 bullets, description', 'Backend search terms', 'ES, DE or PT version: +$25'], p: 'from $35', ps: 'per listing' },
+    { t: 'Main image, title and offer', x: 'If shoppers see you and scroll past, the problem is usually the main image, the title or the price against competitors. The audit finds which one.', l: ['Main image and title review', 'Price and Buy Box check', 'Reviews and rating against competitors'], p: 'from $60', ps: 'account audit, per ASIN' },
+    { t: 'A+ content and listing images', x: 'Images that answer buyer questions before they\'re asked: infographics, dimensions, compatibility and comparison charts, built to Amazon\'s specs.', l: ['A+ modules and gallery images', 'Copy for every module', 'PSD source files in larger packages'], p: 'from $50', ps: '3 images or A+ modules' },
+    { t: 'Amazon PPC', x: 'An audit of campaigns and search terms, or a new structure from scratch, so the budget goes to terms that actually sell.', l: ['Search term and ACoS audit', 'Auto, exact, phrase and product targeting', 'Negatives, bids, budgets and dayparting'], p: 'from $50', ps: 'audit with action plan' },
+    { t: 'Sales and ads dashboard', x: 'One view of sales, ad spend, ACoS, TACoS and profit by product, so you can see which ASIN makes money and which one burns it.', l: ['Power BI, Excel or Google Sheets', 'Profit after fees and ads', 'Hourly view for dayparting', 'A guide to refresh it'], p: 'from $60', ps: 'per dashboard' }
+  ];
+  var btns = document.querySelectorAll('.stage');
+  var L = document.getElementById('p-label'), T = document.getElementById('p-title'), X = document.getElementById('p-text'), U = document.getElementById('p-list'), P = document.getElementById('p-price');
+  function show(i) {
+    btns.forEach(function (b) { b.setAttribute('aria-pressed', String(+b.dataset.s === i)); });
+    var d = data[i];
+    L.textContent = 'Fix for stage 0' + (i + 1);
+    T.textContent = d.t; X.textContent = d.x;
+    U.innerHTML = ''; d.l.forEach(function (s) { var li = document.createElement('li'); li.textContent = s; U.appendChild(li); });
+    P.innerHTML = ''; P.appendChild(document.createTextNode(d.p + ' ')); var sm = document.createElement('small'); sm.textContent = d.ps; P.appendChild(sm);
+  }
+  btns.forEach(function (b) { b.addEventListener('click', function () { show(+b.dataset.s); }); });
+})();
+
+/* ---------- Form ---------- */
 (function () {
   var form = document.getElementById('lead-form');
   var status = document.getElementById('f-status');
