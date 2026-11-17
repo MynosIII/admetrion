@@ -15,9 +15,9 @@ priv=head+'<title>Privacy policy · Admetrion</title>\n'+fav+'''
 '''+style+'''
 </head>
 <body>
-<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 L24 30 L34 38 L56 14" stroke="#ffb000" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="56" cy="14" r="5" fill="#ffb000"/></svg>ADMETRION</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a class="cta" href="index.html#contact">Free mini-audit</a></nav></div></header>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="34" width="13" height="24" fill="#86f5a8"/><rect x="25" y="20" width="13" height="38" fill="#86f5a8"/><rect x="44" y="6" width="13" height="52" fill="#86f5a8"/></svg>ADMETRION</a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a class="cta" href="index.html#contact">Free mini-audit</a></nav></div></header>
 <main class="wrap doc">
-<p class="label">Privacy</p>
+<p class="tag">Privacy</p>
 <h1 style="font-size:2rem">Privacy policy</h1>
 <p class="note">Last updated: November 17, 2026</p>
 <p>This site belongs to Admetrion, run by Matías Gaglio (Argentina). Contact: admetrion@gmail.com.</p>
