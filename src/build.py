@@ -11,16 +11,15 @@ open(W+'index.html','w').write(full)
 style=s[s.index('<style>'):s.index('</style>')+8]
 fav=re.search(r'<link rel="icon"[^>]*>',s).group(0)
 priv=head+'<title>Privacy policy · Admetrion</title>\n'+fav+'''
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 '''+style+'''
-<style>.doc{max-width:720px;padding-block:56px}.doc h2{margin-top:36px}.doc p,.doc li{color:var(--fg)}.doc .muted{color:var(--muted)}</style>
 </head>
 <body>
-<header class="bar"><div class="wrap"><a class="brand" href="index.html"><span class="sym">&gt;_</span>admetrion</a><nav class="nav" aria-label="Main"><a href="index.html">home</a><a href="index.html#contact">free-audit</a></nav></div></header>
+<header class="bar"><div class="wrap"><a class="brand" href="index.html">ADMETRION<span aria-hidden="true"></span></a><nav class="nav" aria-label="Main"><a href="index.html">Home</a><a class="cta-link" href="index.html#contact">Free mini-audit</a></nav></div></header>
 <main class="wrap doc">
-<p class="prompt">$ <span class="c">cat privacy.txt</span></p>
-<h1 style="font-size:var(--step-2)">Privacy policy</h1>
-<p class="muted">Last updated: November 16, 2026</p>
+<p class="label">Privacy</p>
+<h1 style="font-size:2rem">Privacy policy</h1>
+<p class="note">Last updated: November 17, 2026</p>
 <p>This site belongs to Admetrion, run by Matías Gaglio (Argentina). Contact: admetrion@gmail.com.</p>
 <h2>What I collect</h2>
 <p>Only what you type into the mini-audit form: your name, email, ASIN or product link, marketplace and your message. The site has no tracking cookies and no analytics.</p>
@@ -33,7 +32,7 @@ priv=head+'<title>Privacy policy · Admetrion</title>\n'+fav+'''
 <h2>Your rights</h2>
 <p>You can ask to see, correct or delete your data by writing to admetrion@gmail.com.</p>
 </main>
-<footer><div class="wrap"><span>&gt;_ admetrion &middot; Amazon seller services</span><span>&copy; 2026 Matías Gaglio &middot; Not affiliated with Amazon.</span></div></footer>
+<footer><div class="wrap"><span>Admetrion &middot; Matías Gaglio &middot; Argentina</span><span>Not affiliated with Amazon.</span></div></footer>
 </body>
 </html>
 '''
