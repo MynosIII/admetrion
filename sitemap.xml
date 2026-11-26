@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://admetrion.com/</loc></url>
-<url><loc>https://admetrion.com/privacy.html</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url><loc>https://admetrion.com/</loc><xhtml:link rel="alternate" hreflang="en" href="https://admetrion.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://admetrion.com/es/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://admetrion.com/"/></url>
+<url><loc>https://admetrion.com/es/</loc><xhtml:link rel="alternate" hreflang="en" href="https://admetrion.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://admetrion.com/es/"/><xhtml:link rel="alternate" hreflang="x-default" href="https://admetrion.com/"/></url>
+<url><loc>https://admetrion.com/privacy</loc><xhtml:link rel="alternate" hreflang="en" href="https://admetrion.com/privacy"/><xhtml:link rel="alternate" hreflang="es" href="https://admetrion.com/es/privacy"/><xhtml:link rel="alternate" hreflang="x-default" href="https://admetrion.com/privacy"/></url>
+<url><loc>https://admetrion.com/es/privacy</loc><xhtml:link rel="alternate" hreflang="en" href="https://admetrion.com/privacy"/><xhtml:link rel="alternate" hreflang="es" href="https://admetrion.com/es/privacy"/><xhtml:link rel="alternate" hreflang="x-default" href="https://admetrion.com/privacy"/></url>
 </urlset>

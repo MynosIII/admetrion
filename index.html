@@ -14,6 +14,10 @@
 <meta property="og:description" content="Listing SEO, PPC, audits, A+ images and dashboards by Matías Gaglio. Free listing mini-audit.">
 <meta property="og:image" content="https://admetrion.com/images/og.jpg">
 <meta property="og:url" content="https://admetrion.com/">
+<link rel="alternate" hreflang="en" href="https://admetrion.com/">
+<link rel="alternate" hreflang="es" href="https://admetrion.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://admetrion.com/">
+<meta property="og:locale" content="en_US">
 <link rel="canonical" href="https://admetrion.com/">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Admetrion","description":"Amazon seller services: listing SEO, PPC, account audits, A+ content and sales dashboards.","founder":{"@type":"Person","name":"Matías Gaglio"},"email":"admetrion@gmail.com","areaServed":["US","MX","ES","DE","BR"],"knowsLanguage":["en","es","de","pt"],"sameAs":["https://www.instagram.com/admetrion/","https://www.linkedin.com/in/matiasignaciogaglio","https://matiasgaglio.com","https://www.upwork.com/freelancers/~0156e5791e290758b6"],"url":"https://admetrion.com/","telephone":"+5491135582309"}</script>
@@ -73,6 +77,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .nav a:hover { color: var(--hi); }
 .nav .cta { color: var(--bg); background: var(--acc); padding: 7px 15px; font-weight: 700; white-space: nowrap; }
 .nav .cta:hover { background: var(--hi); color: var(--bg); }
+.nav .lang { font: 600 0.82rem var(--font-mono); letter-spacing: .08em; color: var(--muted); border: 1px solid #2c3a32; padding: 5px 9px; }
+.nav .lang:hover { color: var(--acc); border-color: var(--acc); }
 
 /* buttons */
 .btn { display: inline-flex; align-items: center; gap: 10px; font: 700 1.08rem var(--font-text); padding: 16px 26px; text-decoration: none; border: 2px solid var(--acc); cursor: pointer; transition: background .15s, color .15s, border-color .15s; }
@@ -94,6 +100,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .who b { color: var(--hi); font-weight: 700; }
 .hero h1 { font-size: clamp(2.9rem, 1rem + 6.2vw, 6.9rem); max-width: 9.5ch; }
 .hero h1 em { font-style: normal; color: var(--acc); }
+:lang(es) .hero h1 { font-size: clamp(2.6rem, 1rem + 5.2vw, 6rem); max-width: 12ch; }
 .sub { font-size: 1.25rem; margin: 28px 0 34px; max-width: 30ch; color: var(--fg); }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
@@ -271,7 +278,14 @@ footer a { color: var(--muted); }
   .sub { margin: 22px 0 26px; }
 }
 @media (max-width: 640px) {
-  .nav a:not(.cta) { display: none; }
+  .nav a:not(.cta):not(.lang) { display: none; }
+  .nav { gap: 10px; }
+  .bar .wrap { gap: 10px; }
+  .nav .cta { font-size: 0.92rem; padding: 6px 11px; }
+}
+@media (max-width: 440px) {
+  .brand { font-size: 0; gap: 0; }
+  .brand svg { width: 26px; height: 26px; }
   .all-services { grid-template-columns: minmax(0, 1fr); }
   .panel, form { padding: 24px; }
   .stage { grid-template-columns: 2rem minmax(0, 1fr); }
@@ -291,6 +305,7 @@ footer a { color: var(--muted); }
       <a href="#funnel">Services</a>
       <a href="#work">Work</a>
       <a href="#about">About</a>
+      <a class="lang" href="/es/" hreflang="es" lang="es" title="Ver en español">ES</a>
       <a class="cta" href="#contact">Free mini-audit</a>
     </nav>
   </div>
